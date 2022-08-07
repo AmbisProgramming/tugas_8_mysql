@@ -1,0 +1,31 @@
+create table tugas_populasi( kota varchar(50), kec tinyint(3) unsigned,
+ kel smallint(5) unsigned, luas decimal(6,2), penduduk int(10) unsigned ) ;
+
+ insert into tugas_populasi values ( 'Jakarta', 44, 267, 664.01, 9988495) ,
+    -> ('Surabaya', 31, 154, 350.54, 2805906) , ("Medan", 21, 151, 265.00, 2805906)
+    -> , ("Bekasi", 12, 56, 206.61, 2381053) , ("Bandung", 30, 151, 167.67, 2339463),
+    -> ("Makassar", 14, 143, 199.26, 1651146), ("Depok", 11, 63, 200.29, 1631951),
+    -> ("Semarang", 16, 177, 373.78, 1621384), ("Tangerang", 13, 104, 153.93, 1566190) ,
+    -> ("Palembang", 14, 107, 369.22 , 1548064) ;
+
+1.select kota, kec, luas, penduduk from tugas_populasi ;
+2.select kota as `Nama Kota`, kec as `Jumlah Kecematan`, kel as `Jumlah Kelurahan` from tugas_populasi ;
+3.select * from tugas_populasi order by kec desc ;
+4.select * from tugas_populasi order by kel limit 2,5  ;
+5.select * from tugas_populasi where kota = 'Depok' ;
+
+
+create table tugas_daftar_provinsi( prov varchar(50), ibukota  varchar(50), luas int(11)
+    -> , tanggal_diresmikan date ) ;
+
+insert into tugas_daftar_provinsi values ('Sumatera Utara', 'Medan', 72981, "1956-11-29"),
+    -> ('Sumatera Barat', 'Padang', 42297, '1957-08-09'), ('Jawa Barat', 'Bandung', 35245, '1950-07-04'),
+    -> ('Jawa Tengah', 'Semarang', 33987, '1950-07-04'), ('Sulawesi Selatan', 'Makassar', 46116, '1960-12-13'),
+    -> ('Bali', 'Denpasar', 5561, '1958-08-14' ), ('Sumatera Selatan', 'Palembang', 85679, '1950-08-14') ,
+    -> ('Papua Barat', 'Manokwari', 114566, '1999-10-04') ;
+
+
+6.select tugas_daftar_provinsi.prov, tugas_populasi.kota, tugas_populasi.penduduk from
+    -> tugas_daftar_provinsi, tugas_populasi WHERE tugas_daftar_provinsi.ibukota = tugas_populasi.kota ;
+
+7. select * from tugas_populasi where kec between 20 and 30 ;
